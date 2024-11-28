@@ -9,6 +9,6 @@ Feature: Sorting products
         And I close the cookie popup
         When I click on the SortBy button
 
-    Scenario: Sort products by alphabetically
+    Scenario: Sort products alphabetically
         And I select "Product A-Z" criteria
         Then The products should be sorted alphabetically
