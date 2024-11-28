@@ -38,3 +38,7 @@ Then("The products should be sorted alphabetically", async () => {
     expect(productNames[i]).toBe(sortedNames[i]);    
   }
 });
+
+Then("Url should contain {string}", async (url: string) => {
+  expect(pageFixture.page).toHaveURL(`https://highlifeshop.com/cafe${url}`);
+});
