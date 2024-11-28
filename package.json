@@ -2,7 +2,9 @@
   "name": "immfly",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cucumberWithTs": "npx cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
