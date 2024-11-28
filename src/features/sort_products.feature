@@ -7,8 +7,8 @@ Feature: Sorting products
     Background: Pre conditions
         Given I navigate to highlifeshop homepage
         And I close the cookie popup
-
-    Scenario: Sort products by price in ascending order
         When I click on the SortBy button
-        And I select Price criteria
-        Then The products should be sorted by price in ascending order
+
+    Scenario: Sort products by alphabetically
+        And I select "Product A-Z" criteria
+        Then The products should be sorted alphabetically
