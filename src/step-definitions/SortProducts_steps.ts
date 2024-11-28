@@ -1,24 +1,24 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { Browser, Page, chromium } from "@playwright/test";
+import { pageFixture } from "./hooks/browserContextFixture";
 
-let browser: Browser;
-let context: any;
-let page: Page;
+const url = "https://highlifeshop.com/speedbird-cafe";
 
 Given("I navigate to highlifeshop homepage", async () => {
-  browser = await chromium.launch({ headless: false });
-  context = await browser.newContext({
-    viewport: { width: 1920, height: 1080 }});
-  page = await context.newPage();
-
-  await page.goto("https://highlifeshop.com/speedbird-cafe", { timeout: 80000, waitUntil: "domcontentloaded" });
+  await pageFixture.page.goto(url);
 });
 
-When("I select {string} from the Sort By dropdown", async (criteria: string) => {
-    console.log("Step 2");
-  });
+Given("I close the cookie popup", async () => {
+  await pageFixture.page.locator('.ammodals-overlay').click();
+});
 
-Then(
-  "The products should be sorted by price in ascending order", async () => {
-    console.log("Step 3");
-  });
+When("I click on the SortBy button", async () => {
+  await pageFixture.page.locator('ul').filter({ hasText: 'Default Default New Arrivals' }).getByRole('listitem').click();
+});
+
+When("I select Price criteria", async () => {
+    await pageFixture.page.locator('li').filter({ hasText: 'Product A-Z' }).click();
+});
+
+Then("The products should be sorted by price in ascending order", async () => {
+  
+});

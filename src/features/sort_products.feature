@@ -6,7 +6,9 @@ Feature: Sorting products
 
     Background: Pre conditions
         Given I navigate to highlifeshop homepage
+        And I close the cookie popup
 
     Scenario: Sort products by price in ascending order
-        When I select "Price" from the Sort By dropdown
+        When I click on the SortBy button
+        And I select Price criteria
         Then The products should be sorted by price in ascending order
