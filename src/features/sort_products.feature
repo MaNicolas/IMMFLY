@@ -1,4 +1,4 @@
-@SortingProducts
+@regression @sortingProducts
 Feature: Sorting products
     As a user
     I want to sort the product list using the Sort By dropdown
@@ -9,6 +9,7 @@ Feature: Sorting products
         And I close the cookie popup
         When I click on the SortBy button
 
+    @smoke
     Scenario: Sort products alphabetically
         And I select "Product A-Z" criteria
         Then The products should be sorted alphabetically
@@ -24,3 +25,8 @@ Feature: Sorting products
             | Product Z-A       | ?product_list_order=product_desc |
             | Price Low to High | ?product_list_order=price_asc    |
             | Price High to Low | ?product_list_order=price_desc   |
+
+        @ignore
+        Examples:
+            | criteria  | url      |
+            | Incorrect | Criteria |

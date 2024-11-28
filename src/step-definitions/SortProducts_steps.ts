@@ -8,7 +8,7 @@ Given("I navigate to highlifeshop homepage", async () => {
   await pageFixture.page.goto(url);
 });
 
-Given("I close the cookie popup", async () => {  
+Given("I close the cookie popup", async () => {
   const cookiePopup = pageFixture.page.locator(".ammodals-overlay");
   if (await cookiePopup.isVisible()) {
     await cookiePopup.click();

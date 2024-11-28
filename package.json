@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "cucumberWithTs": "npx cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts"
+    "cucumberWithTs": "npx cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts",
+    "cucumber": "npx cucumber-js && ts-node ./src/index.ts"
   },
   "author": "",
   "license": "ISC",
