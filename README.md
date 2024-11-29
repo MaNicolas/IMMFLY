@@ -1,10 +1,20 @@
 # IMMFLY technical test
 
 ## Setup project:
-git clone **https://github.com/MaNicolas/IMMFLY.git**
+Create a folder where you want to store the project (You can name the folder anything you like)
+Open the path in a Terminal (on Windows, simply type 'cmd' in the address bar)
+Once the command prompt window opened, follow these steps:
 
-Once in the root folder, open a terminal and type: 
-**npm init**
+git clone **https://github.com/MaNicolas/IMMFLY.git**
+cd IMMFLY
+npm i --save-dev
+code . (You can use any IDE, this command is for VS Code)
+
+## Hierarchy:
+The project is organized as follow:
+- scenarios are store in the src\features\sort_products.feature file
+- steps definition in src\step-definitions
+- page objects in src\page-objects
 
 ## To run a test:
 npm run cucumber 'tag'
