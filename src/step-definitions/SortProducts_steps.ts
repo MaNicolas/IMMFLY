@@ -1,11 +1,18 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "./hooks/browserContextFixture";
 import { expect } from "@playwright/test";
+import logger from "../logger/logger";
 
 const url = "https://highlifeshop.com/speedbird-cafe";
 
 Given("I navigate to highlifeshop homepage", async () => {
-  await pageFixture.page.goto(url);
+  try {
+    await pageFixture.page.goto(url);
+  logger.info(`Accessing url: ${url}`);
+  } catch (error) {
+    logger.info(`An error has occured: ${error}`);
+  }
+  
 });
 
 Given("I close the cookie popup", async () => {
@@ -13,6 +20,7 @@ Given("I close the cookie popup", async () => {
   if (await cookiePopup.isVisible()) {
     await cookiePopup.click();
   }
+  logger.info('Closing Popup');
 });
 
 When("I click on the SortBy button", async () => {
@@ -21,6 +29,7 @@ When("I click on the SortBy button", async () => {
     .filter({ hasText: "Default Default New Arrivals" })
     .getByRole("listitem")
     .click();
+    logger.info('Clicking on SortBy button');
 });
 
 When("I select {string} criteria", async (criteria: string) => {
@@ -28,6 +37,7 @@ When("I select {string} criteria", async (criteria: string) => {
 
   await pageFixture.page.waitForResponse((response) =>
       response.url().includes('customer/section/load/') && response.status() === 200);
+  logger.info(`Selecting ${criteria} criteria`);
 });
 
 Then("The products should be sorted alphabetically", async () => {  
