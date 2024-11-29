@@ -1,4 +1,4 @@
-import { Given, When } from "@cucumber/cucumber";
+import { Given } from "@cucumber/cucumber";
 import { pageFixture } from "./hooks/browserContextFixture";
 
 Given('I wait for {int} seconds', async (seconds: number) => {

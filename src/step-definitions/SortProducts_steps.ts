@@ -2,17 +2,18 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "./hooks/browserContextFixture";
 import { expect } from "@playwright/test";
 import logger from "../logger/logger";
+import { CucumberWorld } from "./world/cucumberWorld";
 
 const url = "https://highlifeshop.com/speedbird-cafe";
 
-Given("I navigate to highlifeshop homepage", async () => {
+Given("I navigate to highlifeshop homepage", async function (this: CucumberWorld) {
   try {
     await pageFixture.page.goto(url);
-  logger.info(`Accessing url: ${url}`);
+    this.setUrl(url);
+    logger.info(`Accessing url: ${url}`);
   } catch (error) {
     logger.info(`An error has occured: ${error}`);
-  }
-  
+  }  
 });
 
 Given("I close the cookie popup", async () => {
