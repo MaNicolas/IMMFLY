@@ -1,11 +1,22 @@
 import { exec } from "child_process";
 
+import dotenv from 'dotenv';
+dotenv.config({path: './env/.env'});
+
+//Setting retry value from environment variables
+const retryValue = process.env.RETRY || '0';
+
+//Setting parallel thread from environment variables
+const parallelValue = process.env.PARALLELTHREAD || '2';
+
 //Define a common command string for running cucumber tests
 const common = `./src/features/*.feature \
 --require-module ts-node/register \
 --require ./src/step-definitions/**/**/*.ts \
 --require ./src/utils/cucumber-timeout.ts \
 --format html:./reports/report.html \
+--retry ${retryValue} \
+--parallel ${parallelValue} \
 --tags "not @ignore"`;
 
 //Define an interface for the profiles object
