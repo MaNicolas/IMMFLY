@@ -5,10 +5,10 @@ Create a folder where you want to store the project (You can name the folder any
 Open the path in a Terminal (on Windows, simply type 'cmd' in the address bar)
 Once the command prompt window opened, follow these steps:
 
-git clone **https://github.com/MaNicolas/IMMFLY.git**
-cd IMMFLY
-npm i --save-dev
-code . (You can use any IDE, this command is for VS Code)
+git clone **https://github.com/MaNicolas/IMMFLY.git**<br />
+cd IMMFLY<br />
+npm i --save-dev<br />
+code . (You can use any IDE, this command is for VS Code)<br />
 
 ## Hierarchy:
 The project is organized as follow:
